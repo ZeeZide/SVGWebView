@@ -23,7 +23,9 @@ import WebKit
  */
 public struct SVGWebView: View {
   
-  public let svg : String
+  private let svg: String
+  
+  public let init(svg: String) { self.svg = svg }
   
   public var body: some View {
     WebView(html:
