@@ -4,6 +4,11 @@
        align="right" width="128" height="128" />
 </h2>
 
+![Swift5.3](https://img.shields.io/badge/swift-5.3-blue.svg)
+![macOS](https://img.shields.io/badge/os-macOS-green.svg?style=flat)
+![iOS](https://img.shields.io/badge/os-iOS-green.svg?style=flat)
+[![Build and Test](https://github.com/ZeeZide/SVGWebView/actions/workflows/swift.yml/badge.svg?branch=main)](https://github.com/ZeeZide/SVGWebView/actions/workflows/swift.yml)
+
 A [SwiftUI](https://developer.apple.com/xcode/swiftui/)
 View to display 
 [SVGs](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) 
@@ -29,9 +34,10 @@ is small enough for just copying it to your project.
 But it can also be embedded as a SwiftPM package.
 
 *IMPORTANT*: 
-On macOS `WKWebView` requires the "outgoing internet connection" (client)
-entitlement to operate, otherwise it'll show up blank.
-             
+On macOS `WKWebView` requires the "Outgoing Connections" (client)
+entitlement to operate, w/o it'll show up blank. iOS doesn't seem to require
+anything extra.
+
 With iOS Xcode Previews do not work quite right, best to test in a real 
 simulator.
 
