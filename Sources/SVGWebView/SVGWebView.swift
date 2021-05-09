@@ -25,7 +25,7 @@ public struct SVGWebView: View {
   
   private let svg: String
   
-  public let init(svg: String) { self.svg = svg }
+  public init(svg: String) { self.svg = svg }
   
   public var body: some View {
     WebView(html:
@@ -52,17 +52,14 @@ public struct SVGWebView: View {
                     namespaceURI: String?, qualifiedName: String?,
                     attributes: [ String : String ])
         {
-          attrs = attributes
+          self.attrs = attributes
         }
       }
       let parser  = XMLParser(data: Data((string[tagRange] + "</svg>").utf8))
       let handler = Handler()
       parser.delegate = handler
         
-      guard parser.parse() else {
-        return [:]
-      }
-      assert(handler.attrs != nil)
+      guard parser.parse() else { return [:] }
       return handler.attrs ?? [:]
     }()
     
