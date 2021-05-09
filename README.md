@@ -11,13 +11,14 @@ View to display
 using a
 [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview).
 
-Example use in 
-[SVG Shaper for SwiftUI](https://zeezide.de/en/products/svgshaper/):
+Example usage in 
+[SVG Shaper for SwiftUI](https://zeezide.de/en/products/svgshaper/)
+(it is the View displaying the SVG in the upper left):
 ![SVG SHaper Screenshot](https://pbs.twimg.com/media/E0ydNH9XEAQ-USY?format=png)
 
-Note: [SVG Shaper](https://zeezide.de/en/products/svgshaper/):
+Note: [SVG Shaper](https://zeezide.de/en/products/svgshaper/)
 is for converting SVGs to SwiftUI _source code_ (which then gets compiled).
-SVGWebView is for displaying SVG resources (e.g. loaded from a
+`SVGWebView` is for displaying SVG resources (e.g. loaded from a
 bundle or the web) at _runtime_. They serve different purposes.
 
 ## Usage
@@ -27,38 +28,48 @@ This is just a single file, the
 is small enough for just copying it to your project.
 But it can also be embedded as a SwiftPM package.
 
+*IMPORTANT*: 
+On macOS `WKWebView` requires the "outgoing internet connection" (client)
+entitlement to operate, otherwise it'll show up blank.
+             
+With iOS Xcode Previews do not work quite right, best to test in a real 
+simulator.
+
 ### Adding the Package
 
 The package URL is: `https://github.com/ZeeZide/SVGWebView.git`
 
 ### Using it in a SwiftUI App
 
-Simple pass the SVG string to the View. For example:
+Simply pass the SVG string to the View. For example:
 
 ```swift
 import SwiftUI
 import SVGWebView
 
 struct ContentView: View {
-  var body: some View {
-    SVGWebView(svg:
-      """
-      <svg xmlns="http://www.w3.org/2000/svg"
-           viewBox="0 0 100 100">
-        <rect x="10" y="10"
-              width="80" height="80"
-              fill="gold" stroke="blue"
-              stroke-width="4" />
-      </svg>
-      """
-    )
-    .frame(width: 300, height: 200)
-  }
+
+    var body: some View {
+        SVGWebView(svg:
+            """
+            <svg xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 100 100">
+              <rect x="10" y="10"
+                    width="80" height="80"
+                    fill="gold" stroke="blue"
+                    stroke-width="4" />
+            </svg>
+            """
+        )
+        .frame(width: 300, height: 200)
+    }
 }
+
 struct ContentView_Previews: PreviewProvider {
-  static var previews: some View {
-    ContentView()
-  }
+
+    static var previews: some View {
+        ContentView()
+    }
 }
 ```
 
