@@ -20,7 +20,7 @@ using a
 Example usage in 
 [SVG Shaper for SwiftUI](https://zeezide.de/en/products/svgshaper/)
 (it is the View displaying the SVG in the upper left):
-![SVG SHaper Screenshot](https://pbs.twimg.com/media/E0ydNH9XEAQ-USY?format=png)
+![SVG Shaper Screenshot](https://zeezide.de/img/svgshaper/screenshots/Lightmode/cook-xcode-2-light-framed-resized.png)
 
 Note: [SVG Shaper](https://zeezide.de/en/products/svgshaper/)
 is for converting SVGs to SwiftUI _source code_ (which then gets compiled).
